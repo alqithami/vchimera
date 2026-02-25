@@ -1,0 +1,14 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vchimera"
+version = "0.2.0"
+description = "V-CHIMERA: coupled cyber-social crisis-response simulation with protocol shielding"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = []
+
+[tool.setuptools]
+packages = ["vchimera", "vchimera.backends", "vchimera.backends.adapters", "vchimera.policies"]
