@@ -91,4 +91,4 @@ Outputs include:
 python scripts/run_all.py --compile
 ```
 
-This runs main experiments + sensitivity + regenerates paper assets + compiles the PDF.
+This runs main experiments + sensitivity + regenerates assets + compiles the PDF.
