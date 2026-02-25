@@ -1,0 +1,27 @@
+name: journal_demo
+output_root: runs
+write_steps: true
+
+seeds: [0,1]
+
+scenarios:
+  - name: ransomware_rumor
+    config: configs/scenarios/ransomware_rumor.yaml
+  - name: outage_rumor
+    config: configs/scenarios/outage_rumor.yaml
+  - name: exfiltration_scam
+    config: configs/scenarios/exfiltration_scam.yaml
+
+policies:
+  - name: pipeline
+    shield: false
+    label: pipeline
+  - name: pipeline
+    shield: true
+    label: pipeline+shield
+  - name: vchimera
+    shield: false
+    label: vchimera
+  - name: vchimera
+    shield: true
+    label: vchimera+shield

@@ -1,0 +1,16 @@
+name: sensitivity
+output_dir: runs
+seeds: [0,1,2,3]
+
+scenario:
+  name: ransomware_rumor
+  config: configs/scenarios/ransomware_rumor.yaml
+
+policy:
+  name: vchimera
+  shield: true
+  label: vchimera+shield
+
+grid:
+  coupling_scale: [0.7, 1.0, 1.3, 1.6]
+  moderation_scale: [0.7, 1.0, 1.3, 1.6]

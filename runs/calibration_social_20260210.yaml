@@ -1,0 +1,32 @@
+calibration_report:
+  final_metrics:
+    compliance: 0.34714245629414875
+    misbelief: 0.25205464677052214
+    polarization: 0.04663796766342984
+    reporting: 0.43138164098679505
+    trust: 0.4526860166257846
+    uncertainty: 0.06164012358291618
+  score: 0.9447547172848495
+  targets:
+    misbelief:
+    - 0.2
+    - 0.35
+    polarization:
+    - 0.03
+    - 0.12
+    trust:
+    - 0.45
+    - 0.65
+    uncertainty:
+    - 0.3
+    - 0.55
+social:
+  base_post_correction: 0.02482597617646104
+  base_post_misinfo: 0.04195177233103072
+  bots_frac: 0.038973312060588
+  correction_efficacy: 0.21869593890989664
+  official_efficacy: 0.20424667446768596
+  shock_misbelief_inject: 0.03453114213366586
+  shock_trust_drop: 0.23557601823864327
+  shock_uncertainty: 0.2777228871944478
+  susceptibility: 0.15669604293730366

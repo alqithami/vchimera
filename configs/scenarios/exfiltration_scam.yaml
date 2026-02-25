@@ -1,0 +1,61 @@
+env:
+  horizon: 60
+
+cyber:
+  backend: attackgraph
+  n_hosts: 34
+  edge_prob: 0.08
+  critical_frac: 0.18
+  base_exploit_prob: 0.24
+  attacker_budget: 7
+  exfil_gain: 0.07
+  ransomware_prob: 0.01
+  ransomware_trigger_compromised: 0.45
+  harm_w_exfil: 2.6
+  harm_norm: 6.2
+
+social:
+  n_agents: 900
+  n_communities: 9
+  bots_frac: 0.05
+  base_post_misinfo: 0.048
+  base_post_correction: 0.020
+  susceptibility: 0.15
+  correction_efficacy: 0.18
+  official_efficacy: 0.26
+  shock_misbelief_inject: 0.07
+  platforms:
+    - name: microblog
+      mean_degree: 16
+      homophily: 0.60
+      mod_remove_prob: 0.10
+      mod_label_prob: 0.15
+      amplification: 1.20
+    - name: messaging
+      mean_degree: 11
+      homophily: 0.74
+      mod_remove_prob: 0.05
+      mod_label_prob: 0.08
+      amplification: 0.95
+    - name: video
+      mean_degree: 8
+      homophily: 0.58
+      mod_remove_prob: 0.12
+      mod_label_prob: 0.20
+      amplification: 1.05
+
+coupling:
+  cyber_to_social_scale: 1.10
+  social_to_cyber_scale: 1.15
+  outage_weight: 0.90
+  ransomware_weight: 1.05
+  exfil_weight: 1.25
+  verified_update_weight: 1.0
+
+protocol:
+  cooldown_steps: 3
+  evidence_required_for_debunk: true
+  evidence_detection_threshold: 0.60
+  uncertainty_label_threshold: 0.55
+  require_uncertainty_label_for_debunk_when_high: true
+  severity_gate_threshold: 0.75

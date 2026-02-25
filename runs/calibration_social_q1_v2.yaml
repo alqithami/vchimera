@@ -1,0 +1,36 @@
+social:
+  bots_frac: 0.05062704071182839
+  base_post_misinfo: 0.06177530396905659
+  base_post_correction: 0.05928848175982095
+  susceptibility: 0.18560490380879033
+  correction_efficacy: 0.26860294291799813
+  official_efficacy: 0.17033092282673923
+  uncertainty_decay: 0.03563298887956902
+  uncertainty_from_labeled_misinfo: 0.09533649244239091
+  shock_uncertainty: 0.2285592047561812
+  shock_trust_drop: 0.10302535391804818
+  shock_misbelief_inject: 0.06830084134337992
+calibration_report:
+  score: 0.07578630155440758
+  final_metrics:
+    misbelief: 0.2802423538831834
+    trust: 0.3964337322806812
+    uncertainty: 0.3852685531121471
+    polarization: 0.032231217703246315
+    compliance: 0.2976849020306252
+    reporting: 0.2515119605197592
+  targets:
+    misbelief:
+    - 0.2
+    - 0.35
+    trust:
+    - 0.45
+    - 0.65
+    uncertainty:
+    - 0.3
+    - 0.55
+    polarization:
+    - 0.03
+    - 0.12
+  notes: Time-averaged metrics over a crisis-regime horizon under persistent narrative
+    pressure.

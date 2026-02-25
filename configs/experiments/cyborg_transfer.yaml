@@ -1,0 +1,14 @@
+name: cyborg_transfer
+output_root: runs
+write_steps: true
+
+seeds: [0,1]
+
+scenarios:
+  - name: cyborg_enterprise_cc4
+    config: configs/scenarios/cyborg_enterprise_cc4.yaml
+
+policies:
+  - name: vchimera
+    shield: true
+    label: vchimera+shield

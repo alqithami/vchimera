@@ -1,0 +1,36 @@
+config: configs/experiments/cyborg_transfer_journal.yaml
+experiment: cyborg_transfer_journal
+override: null
+policies:
+- label: pipeline
+  name: pipeline
+  shield: false
+- label: pipeline+shield
+  name: pipeline
+  shield: true
+- label: vchimera
+  name: vchimera
+  shield: false
+- label: vchimera+shield
+  name: vchimera
+  shield: true
+- label: vchimera-no-coupling+shield
+  name: vchimera-no-coupling
+  shield: true
+- label: vchimera-no-targeting+shield
+  name: vchimera-no-targeting
+  shield: true
+scenarios:
+- config: configs/scenarios/cyborg_enterprise_cc4_long.yaml
+  name: cyborg_enterprise_cc4
+seeds:
+- 0
+- 1
+- 2
+- 3
+- 4
+- 5
+- 6
+- 7
+- 8
+- 9

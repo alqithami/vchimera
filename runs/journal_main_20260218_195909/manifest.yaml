@@ -1,0 +1,61 @@
+config: configs/experiments/journal_main.yaml
+experiment: journal_main
+override: null
+policies:
+- label: pipeline
+  name: pipeline
+  shield: false
+- label: pipeline+shield
+  name: pipeline
+  shield: true
+- label: vchimera
+  name: vchimera
+  shield: false
+- label: vchimera+shield
+  name: vchimera
+  shield: true
+- label: vchimera-no-coupling+shield
+  name: vchimera-no-coupling
+  shield: true
+- label: vchimera-no-targeting+shield
+  name: vchimera-no-targeting
+  shield: true
+scenarios:
+- config: configs/scenarios/ransomware_rumor.yaml
+  name: ransomware_rumor
+- config: configs/scenarios/outage_rumor.yaml
+  name: outage_rumor
+- config: configs/scenarios/exfiltration_scam.yaml
+  name: exfiltration_scam
+seeds:
+- 0
+- 1
+- 2
+- 3
+- 4
+- 5
+- 6
+- 7
+- 8
+- 9
+- 10
+- 11
+- 12
+- 13
+- 14
+- 15
+- 16
+- 17
+- 18
+- 19
+- 20
+- 21
+- 22
+- 23
+- 24
+- 25
+- 26
+- 27
+- 28
+- 29
+- 30

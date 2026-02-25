@@ -1,0 +1,17 @@
+name: quick
+output_root: runs
+write_steps: false
+
+seeds: [0,1]
+
+scenarios:
+  - name: ransomware_rumor
+    config: configs/scenarios/ransomware_rumor.yaml
+
+policies:
+  - name: pipeline
+    shield: true
+    label: pipeline+shield
+  - name: vchimera
+    shield: true
+    label: vchimera+shield

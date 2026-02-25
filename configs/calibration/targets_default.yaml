@@ -1,0 +1,10 @@
+targets:
+  misbelief: [0.20, 0.35]
+  trust: [0.45, 0.65]
+  uncertainty: [0.30, 0.55]
+  polarization: [0.03, 0.12]
+
+search:
+  n_iter: 80
+  horizon: 30
+  seed: 0

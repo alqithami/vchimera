@@ -1,0 +1,16 @@
+config: configs/experiments/quick.yaml
+experiment: quick
+override: null
+policies:
+- label: pipeline+shield
+  name: pipeline
+  shield: true
+- label: vchimera+shield
+  name: vchimera
+  shield: true
+scenarios:
+- config: configs/scenarios/ransomware_rumor.yaml
+  name: ransomware_rumor
+seeds:
+- 0
+- 1

@@ -1,0 +1,33 @@
+name: journal_main
+output_root: runs
+write_steps: true
+
+seeds: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30]
+
+scenarios:
+  - name: ransomware_rumor
+    config: configs/scenarios/ransomware_rumor.yaml
+  - name: outage_rumor
+    config: configs/scenarios/outage_rumor.yaml
+  - name: exfiltration_scam
+    config: configs/scenarios/exfiltration_scam.yaml
+
+policies:
+  - name: pipeline
+    shield: false
+    label: pipeline
+  - name: pipeline
+    shield: true
+    label: pipeline+shield
+  - name: vchimera
+    shield: false
+    label: vchimera
+  - name: vchimera
+    shield: true
+    label: vchimera+shield
+  - name: vchimera-no-coupling
+    shield: true
+    label: vchimera-no-coupling+shield
+  - name: vchimera-no-targeting
+    shield: true
+    label: vchimera-no-targeting+shield
