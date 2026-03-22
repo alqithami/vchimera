@@ -1,0 +1,140 @@
+Metadata-Version: 2.4
+Name: iml-ssd
+Version: 0.1.0
+Summary: Institutional Monitoring Ledger (IML) experiment pipeline for Sequential Social Dilemmas (Harvest/Cleanup).
+Author: (anonymous)
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: numpy>=1.21
+Requires-Dist: pandas>=1.3
+Requires-Dist: matplotlib>=3.5
+Requires-Dist: pyyaml>=6.0
+Requires-Dist: tqdm>=4.60
+Requires-Dist: torch>=2.0
+Requires-Dist: tensorboard>=2.12
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0; extra == "dev"
+
+# IML Experiment Pipeline for Sequential Social Dilemmas (Harvest/Cleanup)
+
+This repository is a **reproducible experiment pipeline** to evaluate an **Institutional Monitoring & Sanctioning** mechanism ("IML") in the **Sequential Social Dilemma (SSD)** environments **Harvest** and **Cleanup**.
+
+It produces:
+- **train/eval logs** (CSV + TensorBoard),
+- **audit/ledger logs** (JSONL, optional),
+- **paper-ready figures** (PDF/PNG),
+- **summary tables** (CSV).
+
+## 0) System prerequisites
+
+- macOS or Linux recommended.
+- **Python 3.9.x is REQUIRED** (SSD package metadata enforces `python<3.10`).
+
+> If you are currently on Python 3.10+ (including 3.12/3.13), `pip install -e .` for the SSD repo will fail with a `python_requires` error.
+
+### Recommended: use conda
+
+```bash
+conda create -n imlssd python=3.9 -y
+conda activate imlssd
+python -m pip install --upgrade pip setuptools wheel
+```
+
+If you are troubleshooting an install issue, run:
+
+```bash
+bash scripts/diagnose_env.sh
+```
+
+## 1) Install SSD environments (Harvest/Cleanup) WITHOUT Ray/RLlib
+
+This pipeline expects the `social_dilemmas` package from Eugene Vinitsky et al.'s SSD implementation:
+
+- Repo: `sequential_social_dilemma_games`
+
+**Important:** the upstream `requirements.txt` pins `ray[rllib]==0.8.5`, which is (a) not needed for this pipeline and (b) generally not installable on modern systems.
+
+Use the provided installer:
+
+```bash
+bash scripts/install_ssd_no_ray.sh
+```
+
+> Do **NOT** run `pip install -r requirements.txt` inside the SSD repo, because it pins
+> `ray[rllib]==0.8.5` (not needed here and typically not installable).
+
+### Quick import check
+
+```bash
+python -c "from social_dilemmas.envs.cleanup import CleanupEnv; env=CleanupEnv(num_agents=5); obs=env.reset(); print('ok', type(obs), len(obs))"
+```
+
+## 2) Install this pipeline
+
+From this folder:
+
+```bash
+pip install -r requirements.txt
+pip install -e .
+```
+
+## 3) Quick smoke test
+
+```bash
+python -m iml_ssd.tools.smoke_test --env cleanup --num_agents 5 --steps 50
+```
+
+## 4) Run training
+
+### Baseline (no institution)
+
+```bash
+python -m iml_ssd.experiments.train --config configs/cleanup_baseline.yaml --seed 0
+python -m iml_ssd.experiments.train --config configs/harvest_baseline.yaml --seed 0
+```
+
+### IML (monitor + sanction + review)
+
+```bash
+python -m iml_ssd.experiments.train --config configs/cleanup_iml.yaml --seed 0
+python -m iml_ssd.experiments.train --config configs/harvest_iml.yaml --seed 0
+```
+
+Outputs go to `runs/<run_name>/`.
+
+## 5) Run evaluation (uses saved model)
+
+```bash
+python -m iml_ssd.experiments.evaluate --run_dir runs/<run_name> --episodes 50
+```
+
+## 6) Aggregate + plot (paper-ready PDFs)
+
+```bash
+python -m iml_ssd.analysis.aggregate --runs_dir runs --out_dir results
+python -m iml_ssd.analysis.plot --results_dir results --out_dir figures
+```
+
+## 7) Paper-strength experimental protocol (minimum)
+
+To produce results that look credible in a journal submission:
+
+- Run **5–10 random seeds** per condition.
+- Report mean ± 95% CI over seeds.
+- Run ablations over:
+  - detection reliability (`p_detect_true`, `p_detect_false`)
+  - sanction magnitude (`sanction`)
+  - review probability (`p_review`) as a due-process safeguard.
+
+Use:
+
+```bash
+bash scripts/run_sweep.sh
+```
+
+---
+
+### Notes
+
+- The PPO implementation here is **parameter-shared PPO** (one policy shared across symmetric agents). This is common for symmetric SSD settings.
+- If you need independent policies per agent or CTDE baselines, the code is structured to allow those extensions.

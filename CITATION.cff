@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it."
+title: "IML: Institutional Monitoring & Ledger for Sequential Social Dilemmas"
+type: software
+authors:
+  - family-names: "Alqithami"
+    given-names: "Saad"
+    orcid: "https://orcid.org/0000-0002-2111-3456"
+repository-code: "https://github.com/alqithami/IML"
+license: "MIT"
+preferred-citation:
+  type: article
+  title: "From Behavioral Influence to Accountable Institutions: Institutional Monitoring and Ledger Mechanisms for Cooperative Human--AI Systems"
+  authors:
+    - family-names: "Alqithami"
+      given-names: "Saad"
+  year: 2026
+  note: "Manuscript under review"
