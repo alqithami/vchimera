@@ -1,6 +1,6 @@
-# V-CHIMERA v2 — Complete, runnable cyber–social crisis-response pipeline
+# V-CHIMERA — Cyber–social crisis-response pipeline
 
-This repository is a **fully runnable** artifact for the V-CHIMERA paper:
+This repository is a runnable artifact for the V-CHIMERA paper:
 a coupled **cyber incident response** + **misinformation/trust** simulator with a **verifiable communications protocol shield**.
 
 ## What you get (out-of-the-box)
