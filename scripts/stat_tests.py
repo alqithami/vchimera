@@ -18,11 +18,11 @@ import numpy as np
 import pandas as pd
 
 KEY_METRICS = [
-    ("cyber_harm_auc", r"Cyber harm AUC $\downarrow$"),
-    ("misbelief_auc", r"Misbelief AUC $\downarrow$"),
-    ("trust_auc", r"Trust AUC $\uparrow$"),
-    ("polarization_auc", r"Polarization AUC $\downarrow$"),
-    ("protocol_executed", r"Executed protocol violations $\downarrow$"),
+    ("cyber_harm_auc", "Cyber harm AUC $\downarrow$"),
+    ("misbelief_auc", "Misbelief AUC $\downarrow$"),
+    ("trust_auc", "Trust AUC $\uparrow$"),
+    ("polarization_auc", "Polarization AUC $\downarrow$"),
+    ("protocol_executed", "Executed protocol violations $\downarrow$"),
 ]
 
 def bootstrap_ci(x: np.ndarray, n: int = 5000, alpha: float = 0.05, seed: int = 0) -> tuple[float, float]:

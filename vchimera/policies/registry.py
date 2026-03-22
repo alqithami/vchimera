@@ -4,6 +4,7 @@ from typing import Dict
 
 from .pipeline import PipelinePolicy
 from .vchimera_policy import VChimeraPolicy, VChimeraConfig
+from .immune_policy import ImmuneVChimeraPolicy, ImmuneVChimeraConfig
 
 
 def make_policy(name: str):
@@ -16,6 +17,8 @@ def make_policy(name: str):
         return VChimeraPolicy(VChimeraConfig(use_coupling=False, use_targeting=True))
     if n in ("vchimera-no-targeting", "vchimera_no_targeting"):
         return VChimeraPolicy(VChimeraConfig(use_coupling=True, use_targeting=False))
+    if n in ("vchimera-ais", "vchimera_ais", "v-chimera-ais"):
+        return ImmuneVChimeraPolicy(ImmuneVChimeraConfig(use_coupling=True, use_targeting=True))
     if n in ("vchimera-no-coupling-no-targeting",):
         return VChimeraPolicy(VChimeraConfig(use_coupling=False, use_targeting=False))
     raise ValueError(f"Unknown policy: {name}")

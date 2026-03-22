@@ -25,6 +25,13 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--config", required=True, help="Path to experiment config YAML.")
     p.add_argument("--override", default=None, help="Optional YAML override applied to all scenarios (deep merge).")
     p.add_argument("--write_steps", action="store_true", help="Write per-step logs to CSV (can be large).")
+    p.add_argument("--no_progress", action="store_true", help="Disable tqdm progress bars (clean logs; safer on CI).")
+    p.add_argument(
+        "--scenario",
+        action="append",
+        default=None,
+        help="Optional scenario name to run (can be repeated). If omitted, all scenarios in the config run.",
+    )
     return p.parse_args()
 
 
@@ -52,6 +59,11 @@ def main() -> None:
     seeds = exp_cfg.get("seeds", list(range(8)))
 
     scenario_specs = exp_cfg.get("scenarios", [])
+    if args.scenario:
+        allow = set(args.scenario)
+        scenario_specs = [s for s in scenario_specs if s.get("name") in allow]
+        if not scenario_specs:
+            raise SystemExit(f"[ERR] --scenario specified but none matched. Requested={sorted(allow)}")
     policy_specs = exp_cfg.get("policies", [])
 
     rows = []
@@ -72,7 +84,11 @@ def main() -> None:
 
             policy = make_policy(pol_name)
 
-            for seed in tqdm(seeds, desc=f"{scen_name} | {label}", leave=False):
+            seed_iter = seeds
+            if not args.no_progress:
+                seed_iter = tqdm(seeds, desc=f"{scen_name} | {label}", leave=False)
+
+            for seed in seed_iter:
                 obs = env.reset(seed=seed)
                 policy.reset()
                 last_msg_t = -10_000
