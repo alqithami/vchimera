@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the accompanying paper."
+title: "V-CHIMERA: Immune-Inspired Verified Coupled Human–Information–Machine Incident Response for Misinformation-Aware Cyber Defense"
+type: software
+authors:
+  - family-names: "Alghamdi"
+    given-names: "Fahad"
+  - family-names: "Alqithami"
+    given-names: "Saad"
+repository-code: "https://github.com/alqithami/vchimera"
+preferred-citation:
+  type: article
+  title: "Immune-Inspired Verified Coupled Human–Information–Machine Incident Response for Misinformation-Aware Cyber Defense"
+  authors:
+    - family-names: "Alghamdi"
+      given-names: "Fahad"
+    - family-names: "Alqithami"
+      given-names: "Saad"
+  journal: "Biomimetics"
+  year: 2026

@@ -1,0 +1,29 @@
+\begin{tabular}{llccccc}
+\toprule
+Scenario & Policy & Cyber harm AUC $\downarrow$ & Misbelief AUC $\downarrow$ & Trust AUC $\uparrow$ & Exec. viol. $\downarrow$ & Shield edits $\downarrow$ \\
+\midrule
+\multirow{7}{*}{Exfiltration scam} & Pipeline & 2.648 $\pm$ 0.601 & 0.688 $\pm$ 0.119 & 0.134 $\pm$ 0.086 & 162.750 $\pm$ 38.936 & 0.000 $\pm$ 0.000 \\
+ & Pipeline+Shield & 2.554 $\pm$ 0.532 & 0.771 $\pm$ 0.129 & 0.137 $\pm$ 0.086 & 0.000 $\pm$ 0.000 & 47.625 $\pm$ 10.600 \\
+ & V-CHIMERA & 2.454 $\pm$ 0.676 & 0.694 $\pm$ 0.176 & 0.238 $\pm$ 0.121 & 48.625 $\pm$ 12.642 & 0.000 $\pm$ 0.000 \\
+ & V-CHIMERA+Shield & 2.616 $\pm$ 0.522 & 0.750 $\pm$ 0.130 & 0.166 $\pm$ 0.099 & 0.000 $\pm$ 0.000 & 35.500 $\pm$ 5.568 \\
+ & V-CHIMERA+IGC+Shield & 2.502 $\pm$ 0.716 & 0.739 $\pm$ 0.157 & 0.155 $\pm$ 0.120 & 0.000 $\pm$ 0.000 & 35.000 $\pm$ 9.429 \\
+ & No coupling+Shield & 2.495 $\pm$ 0.708 & 0.739 $\pm$ 0.156 & 0.165 $\pm$ 0.113 & 0.000 $\pm$ 0.000 & 32.500 $\pm$ 8.851 \\
+ & No targeting+Shield & \textbf{2.482 $\pm$ 0.703} & \textbf{0.676 $\pm$ 0.181} & \textbf{0.194 $\pm$ 0.137} & 0.000 $\pm$ 0.000 & 33.125 $\pm$ 8.531 \\
+\midrule
+\multirow{7}{*}{Outage rumor} & Pipeline & 0.819 $\pm$ 0.739 & 0.365 $\pm$ 0.151 & 0.398 $\pm$ 0.144 & 56.250 $\pm$ 54.262 & 0.000 $\pm$ 0.000 \\
+ & Pipeline+Shield & 0.791 $\pm$ 0.704 & 0.422 $\pm$ 0.189 & 0.388 $\pm$ 0.153 & 0.000 $\pm$ 0.000 & 19.750 $\pm$ 18.890 \\
+ & V-CHIMERA & 1.251 $\pm$ 0.689 & 0.384 $\pm$ 0.131 & 0.462 $\pm$ 0.115 & 35.500 $\pm$ 16.378 & 0.000 $\pm$ 0.000 \\
+ & V-CHIMERA+Shield & 1.307 $\pm$ 0.731 & 0.474 $\pm$ 0.178 & 0.361 $\pm$ 0.171 & 0.000 $\pm$ 0.000 & 25.750 $\pm$ 11.529 \\
+ & V-CHIMERA+IGC+Shield & \textbf{0.751 $\pm$ 0.639} & 0.413 $\pm$ 0.193 & \textbf{0.392 $\pm$ 0.167} & 0.000 $\pm$ 0.000 & 17.625 $\pm$ 12.842 \\
+ & No coupling+Shield & 0.753 $\pm$ 0.641 & 0.418 $\pm$ 0.188 & 0.388 $\pm$ 0.156 & 0.000 $\pm$ 0.000 & 15.875 $\pm$ 11.359 \\
+ & No targeting+Shield & 1.470 $\pm$ 0.647 & \textbf{0.357 $\pm$ 0.121} & 0.316 $\pm$ 0.146 & 0.000 $\pm$ 0.000 & 24.375 $\pm$ 8.615 \\
+\midrule
+\multirow{7}{*}{Ransomware rumor} & Pipeline & 0.829 $\pm$ 0.742 & 0.334 $\pm$ 0.117 & 0.416 $\pm$ 0.127 & 45.375 $\pm$ 47.347 & 0.000 $\pm$ 0.000 \\
+ & Pipeline+Shield & 0.829 $\pm$ 0.742 & 0.388 $\pm$ 0.163 & 0.415 $\pm$ 0.130 & 0.000 $\pm$ 0.000 & 15.625 $\pm$ 15.706 \\
+ & V-CHIMERA & 1.636 $\pm$ 0.760 & 0.434 $\pm$ 0.125 & 0.423 $\pm$ 0.100 & 37.750 $\pm$ 13.848 & 0.000 $\pm$ 0.000 \\
+ & V-CHIMERA+Shield & 1.463 $\pm$ 0.744 & 0.473 $\pm$ 0.177 & 0.369 $\pm$ 0.156 & 0.000 $\pm$ 0.000 & 25.750 $\pm$ 11.723 \\
+ & V-CHIMERA+IGC+Shield & \textbf{0.620 $\pm$ 0.664} & \textbf{0.318 $\pm$ 0.142} & \textbf{0.470 $\pm$ 0.120} & 0.000 $\pm$ 0.000 & 11.750 $\pm$ 9.206 \\
+ & No coupling+Shield & 0.622 $\pm$ 0.667 & 0.320 $\pm$ 0.140 & 0.460 $\pm$ 0.113 & 0.000 $\pm$ 0.000 & 9.625 $\pm$ 7.874 \\
+ & No targeting+Shield & 1.916 $\pm$ 0.983 & 0.411 $\pm$ 0.154 & 0.332 $\pm$ 0.141 & 0.000 $\pm$ 0.000 & 22.875 $\pm$ 8.017 \\
+\bottomrule
+\end{tabular}
