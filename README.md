@@ -24,7 +24,6 @@ It accompanies the manuscript:
   - attempted vs. executed protocol violations
   - shield edits (runtime interventions)
 - **Experiment runners** producing `runs/<RUN_ID>/summary.csv` and (optionally) `episode_steps.csv`
-- **Paper source** under [`paper/`](paper/) (MDPI Biomimetics LaTeX template) and scripts to regenerate submission-ready figures.
 
 ---
 
@@ -33,7 +32,6 @@ It accompanies the manuscript:
 - `vchimera/` — core package (environment, coupling, protocol/shield, metrics, policies, adapters)
 - `configs/` — scenario, calibration, and experiment YAML files
 - `scripts/` — experiment runners, calibration, sensitivity sweeps, and utilities
-- `paper/` — manuscript LaTeX source + submission figures/tables (`main.tex`, `refs.bib`, `figures/`, `paper_assets/`)
 - `runs/` — generated outputs (created when you run experiments)
 
 ---
@@ -110,9 +108,9 @@ pdflatex -interaction=nonstopmode main.tex
 
 ---
 
-## Regenerate submission-ready figures (B/W + single accent)
+## Regenerate submission-ready figures
 
-The paper source includes a figure-regeneration script that produces print-friendly figures (grayscale + one accent color highlighting the main method).
+The paper source includes a figure-regeneration script.
 
 First ensure you produced the required CSVs (main run + sensitivity sweep):
 
@@ -151,8 +149,7 @@ A step-by-step reproducibility checklist (including table/figure mapping) is pro
 
 ## Citation
 
-A `CITATION.cff` file is provided for software citation. Please also cite the accompanying paper (see `paper/main.tex`).
-
+A `CITATION.cff` file is provided for software citation. 
 ---
 
 ## Ethics & safety
