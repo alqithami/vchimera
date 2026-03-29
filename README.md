@@ -1,94 +1,112 @@
-# V-CHIMERA — Cyber–social crisis-response pipeline
+# V-CHIMERA
 
-This repository is a runnable artifact for the V-CHIMERA paper:
-a coupled **cyber incident response** + **misinformation/trust** simulator with a **verifiable communications protocol shield**.
+V-CHIMERA is a cyber–social crisis-response simulation and evaluation artifact for studying misinformation-aware cyber defense. The repository contains the **core simulation code**, baseline and ablation policies, experiment runners, calibration and sensitivity tooling, and selected run outputs.
 
-## What you get (out-of-the-box)
-- A coupled simulation environment (cyber + social ABM + bidirectional coupling)
-- Policies: `pipeline`, `pipeline+shield`, `vchimera(+shield)` and ablations
-- Correct protocol metrics:
-  - **attempted violations** (policy intent),
-  - **executed violations** (what actually happened),
-  - **shield interventions** (how often the shield edited actions)
-- A complete experiment runner that produces `runs/<RUN_ID>/summary.csv`
-- Paper assets generator: produces LaTeX tables + vector PDF figures
-- Calibration script (moment-matching) to keep ABM regimes realistic
-- Robustness / sensitivity sweeps
+## Repository status
 
-## Install
+This public repository is **substantially complete as a code artifact**, but it is **not yet complete as a full paper-reproduction package**.
+
+### Included
+- `vchimera/`: core package (environment, coupling, protocol, metrics, policies, backends)
+- `configs/`: scenario, calibration, and experiment YAML files
+- `scripts/`: experiment, calibration, sensitivity, statistics, and utility scripts
+- `runs/`: selected run outputs and calibration files
+- `requirements.txt` and `pyproject.toml`
+
+### Not yet included
+- The final manuscript source directory (e.g., `paper/`) and publication-ready figure/table assets
+- A frozen release/tag that points to a single canonical run used for the final submitted paper
+- A repository DOI / archival package (e.g., Zenodo)
+- A vendored CybORG checkout (the adapter is present, but the external benchmark must be installed separately)
+
+If your goal is to reproduce the **simulation results and generated CSV outputs**, the repository is usable now. If your goal is to reproduce the **submitted manuscript PDF exactly**, the manuscript source and paper assets still need to be added.
+
+## What the artifact does
+
+V-CHIMERA couples:
+1. a cyber incident simulator or external cyber backend,
+2. a social multi-agent / ABM misinformation layer,
+3. a runtime communication protocol monitor and shield,
+4. experiment scripts that produce run logs and aggregate summaries.
+
+The repository supports:
+- policy comparisons (`pipeline`, `pipeline+shield`, `vchimera`, and ablations),
+- protocol accounting (attempted violations, executed violations, shield interventions),
+- calibration of social-dynamics parameters,
+- robustness / sensitivity sweeps,
+- optional transfer experiments through a CybORG adapter.
+
+## Installation
+
 ```bash
 python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-## Quick sanity check (2–3 minutes)
+## Quick sanity check
+
 ```bash
 python scripts/smoke_test.py
 ```
 
-## Run the main journal experiment
+## Main experiment run
+
 ```bash
 python scripts/run_experiments.py --config configs/experiments/journal_main.yaml
 ```
 
-This creates a run directory like:
-`runs/journal_main_YYYYMMDD_HHMMSS/`
+This creates a timestamped run directory under `runs/`, for example:
 
-
-## Included run (used for the provided PDF)
-The PDF in this bundle was compiled from run directory:
-`runs/journal_main_20260210_215043/`
-
-## Generate paper tables/figures (publication-ready assets)
-```bash
-python scripts/make_paper_assets.py --run_dir runs/<RUN_DIR> --paper_dir paper
+```text
+runs/journal_main_YYYYMMDD_HHMMSS/
 ```
 
-## Compile the paper (requires `pdflatex` + `bibtex8`)
+## Calibration
+
 ```bash
-python scripts/compile_paper.py --paper_dir paper --tex vchimera_journal_q1.tex
+python scripts/calibrate_social.py   --targets configs/calibration/targets_default.yaml   --out runs/calibration_social_local.yaml
 ```
 
-## Calibration (recommended before large sweeps)
-```bash
-python scripts/calibrate_social.py --targets configs/calibration/targets_default.yaml --out configs/calibration/calibrated.yaml
-```
+You can then pass the resulting calibration file back into your experiment workflow if you maintain a calibrated config branch or local override.
 
-Then run experiments using the calibrated override:
-```bash
-python scripts/run_experiments.py --config configs/experiments/journal_main.yaml --override configs/calibration/calibrated.yaml
-```
+## Sensitivity / robustness
 
-## Robustness / sensitivity sweep (Q1-style robustness section)
 ```bash
 python scripts/run_sensitivity.py --config configs/experiments/sensitivity.yaml
 ```
 
-## Optional: benchmark backend transfer (CybORG adapter)
-This artifact runs fully without external cyber backends. For **benchmark transfer** you can optionally run with CybORG (CC4 Enterprise scenario).
-Install CybORG separately (see their docs / repo), then run:
+## Statistical comparison
+
+```bash
+python scripts/stat_tests.py   --run_dir runs/journal_main_YYYYMMDD_HHMMSS   --out table_stats.tex
+```
+
+## Optional CybORG transfer
+
+The repository includes a CybORG adapter, but CybORG itself is **not shipped in this repository**. Install or clone the appropriate CybORG / CAGE Challenge assets separately, then run:
+
 ```bash
 python scripts/run_experiments.py --config configs/experiments/cyborg_transfer.yaml
 ```
 
-If CybORG is not installed, the transfer run will print an actionable error and exit.
+## Outputs
 
-## Reproducibility
-All experiments are controlled via YAML configs and use explicit RNG seeds.
-Outputs include:
-- per-step time series (`episode_steps.csv` if enabled),
-- per-episode summaries,
-- aggregated `summary.csv` with confidence intervals.
+Typical experiment outputs include:
+- per-seed summaries,
+- aggregate `summary.csv`,
+- optional per-step logs,
+- sensitivity outputs under `runs/sensitivity_grid/`.
 
----
-**Ethics & safety note:** the default cyber backend is an *abstract* attack-graph simulator (no exploit payloads or actionable offensive instructions).
+## Recommended next steps to make the repository fully complete
 
+To make this repository a full archival companion for the paper, add:
+1. a `paper/` directory with the exact LaTeX source used for the submitted manuscript,
+2. generated figure/table assets referenced by the manuscript,
+3. a release tag tying the manuscript to a specific run directory,
+4. a DOI-backed archival snapshot (e.g., Zenodo),
+5. a short `REPRODUCIBILITY.md` that maps manuscript tables/figures to run folders and scripts.
 
-## Quickstart (one command)
+## License
 
-```bash
-python scripts/run_all.py --compile
-```
-
-This runs main experiments + sensitivity + regenerates paper assets + compiles the PDF.
+Code in this repository is provided under the MIT License. If manuscript files, figures, or other non-code assets are added later, consider clarifying whether they follow the same license or a different publication-specific license.
