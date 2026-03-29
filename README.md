@@ -112,7 +112,7 @@ pdflatex -interaction=nonstopmode main.tex
 
 ## Regenerate submission-ready figures (B/W + single accent)
 
-The paper source includes a figure-regeneration script that produces print-friendly figures (grayscale + one accent color highlighting the main method).
+The paper source includes a figure-regeneration script that produces print-friendly figures.
 
 First ensure you produced the required CSVs (main run + sensitivity sweep):
 
