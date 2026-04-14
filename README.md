@@ -1,4 +1,5 @@
 # V-CHIMERA
+<img width="960" height="540" alt="coverImage" src="https://github.com/user-attachments/assets/c1a0482d-3fa5-4db2-bd9e-4b55dbd07f58" />
 
 **V-CHIMERA** is a reproducible research artifact for studying **organizational cyber crisis response under misinformation**. The repository models cyber operations and public communication as a coupled human-information-machine system, then evaluates how verified communication governance and immune-inspired regulation affect safety and performance.
 
@@ -6,11 +7,8 @@ The project accompanies the paper **"V-CHIMERA: An Immune-Inspired Verified Fram
 
 ## Graphical Abstract
 
-A publication-quality graphical abstract can be inserted in this section when the repository is updated.
+<img width="2582" height="1368" alt="GA_2" src="https://github.com/user-attachments/assets/e6ad2eb9-dc82-4a37-ac86-ad36013a132c" />
 
-```md
-![Graphical Abstract](path/to/graphical_abstract.png)
-```
 
 ## Why this repository matters
 
