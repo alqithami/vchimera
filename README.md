@@ -1,4 +1,8 @@
 # V-CHIMERA
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![arXiv](https://img.shields.io/badge/arXiv-2026.xxxxxx-b31b1b.svg)](https://arxiv.org/)
+
 <img width="960" height="540" alt="coverImage" src="https://github.com/user-attachments/assets/c1a0482d-3fa5-4db2-bd9e-4b55dbd07f58" />
 
 **V-CHIMERA** is a reproducible research artifact for studying **organizational cyber crisis response under misinformation**. The repository models cyber operations and public communication as a coupled human-information-machine system, then evaluates how verified communication governance and immune-inspired regulation affect safety and performance.
