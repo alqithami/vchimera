@@ -1,7 +1,7 @@
 # V-CHIMERA
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![arXiv](https://img.shields.io/badge/arXiv-2026.xxxxxx-b31b1b.svg)](https://arxiv.org/)
+[![arXiv](https://img.shields.io/badge/biomimetics-2026.xxxxxx-b31b1b.svg)](https://www.mdpi.com/journal/biomimetics)
 
 <img width="960" height="540" alt="coverImage" src="https://github.com/user-attachments/assets/c1a0482d-3fa5-4db2-bd9e-4b55dbd07f58" />
 
@@ -11,7 +11,7 @@ The project accompanies the paper **"V-CHIMERA: An Immune-Inspired Verified Fram
 
 ## Graphical Abstract
 
-<img width="2582" height="1368" alt="GA_2" src="https://github.com/user-attachments/assets/e6ad2eb9-dc82-4a37-ac86-ad36013a132c" />
+<img width="2784" height="1536" alt="Graphical_Abstract" src="https://github.com/user-attachments/assets/1976dc83-1af8-41f2-89ff-4cc821a7045c" />
 
 
 ## Why this repository matters
