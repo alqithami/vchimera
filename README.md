@@ -1,7 +1,7 @@
 # V-CHIMERA
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![arXiv](https://img.shields.io/badge/biomimetics-2026.xxxxxx-b31b1b.svg)](https://www.mdpi.com/journal/biomimetics)
+[![arXiv](https://img.shields.io/badge/Biomimetics-10.3390/biomimetics11050324-b31b1b.svg)](https://www.mdpi.com/2313-7673/11/5/324)
 
 <img width="960" height="540" alt="coverImage" src="https://github.com/user-attachments/assets/c1a0482d-3fa5-4db2-bd9e-4b55dbd07f58" />
 
